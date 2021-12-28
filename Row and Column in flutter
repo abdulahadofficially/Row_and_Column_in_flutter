@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(Myapp());
+}
+
+class Myapp extends StatelessWidget {
+  Widget box(double width, double height, [Color? c, double? w]) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        color: c == null ? Colors.blue : c,
+        border: Border.all(color: Colors.black, width: w == null ? 0 : w),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            box(200, 100, Colors.blue),
+            box(200, 100, Colors.amber, 5),
+            box(200, 100, Colors.black12, 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                box(100, 100, Colors.black),
+                box(100, 100, Colors.red),
+              ],
+            )
+          ],
+        ),
+      ),
+    ));
+  }
+}
